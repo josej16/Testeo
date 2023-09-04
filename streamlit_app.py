@@ -44,7 +44,7 @@ def hide_password_input(input_label):
 businessnumber = st.experimental_get_query_params()
 businessnumber = str(businessnumber['token'])
 businessnumber = businessnumber.strip()
-businessnumber = int(businessnumber)
+# businessnumber = int(businessnumber)
 
 # Función principal
 def main():
@@ -74,19 +74,19 @@ def main():
         return False  
     
     # Página de inicio
-    # def pagina_inicio():
-    #     st.title("Página de Inicio")
-    #     st.write("Bienvenido a la página de inicio. Por favor, ingrese su business number.")
-    #     st.write("passwords = 15550199539 , 56992717910 , 56945904447 ")
+    def pagina_inicio():
+        st.title("Página de Inicio")
+        st.write(businessnumber)
+        st.write("passwords = 15550199539 , 56992717910 , 56945904447 ")
 
-    #     # Verificar la contraseña
-    #     if businessnumber and verificar_contraseña(businessnumber):
-    #         st.success("Contraseña válida. Acceso concedido.")
-    #         # Establecer el estado de autenticación de la sesión
-    #         st.session_state.autenticado = True
-    #         # Creamos la conexión
-    #     else:
-    #         st.error('Password no válido. Intente nuevamente con un número válido.')
+        # Verificar la contraseña
+        if businessnumber and verificar_contraseña(businessnumber):
+            st.success("Contraseña válida. Acceso concedido.")
+            # Establecer el estado de autenticación de la sesión
+            st.session_state.autenticado = True
+            # Creamos la conexión
+        else:
+            st.error('Password no válido. Intente nuevamente con un número válido.')
 
     # FEEDBACK
     # def mostrar_feedback():
@@ -788,12 +788,12 @@ def main():
     #    mostrar_recompra()
   
     # Snackys
-    opciones_paginas_snackys = ["Ofertas", "Recompra"]
+    opciones_paginas_snackys = ["Inicio", "Ofertas", "Recompra"]
     pagina_seleccionada = st.sidebar.selectbox("Selecciona una página:", opciones_paginas_snackys)
 
     # Mostrar páginas para Snackys
-    # if pagina_seleccionada == "Inicio":
-    #     pagina_inicio()
+    if pagina_seleccionada == "Inicio":
+        pagina_inicio()
     if pagina_seleccionada == "Recompra":
         recompra_snackys()
     if pagina_seleccionada == "Ofertas" :
