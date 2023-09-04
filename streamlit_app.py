@@ -278,9 +278,9 @@ def main():
     # RECOMPRA
     def mostrar_recompra():
         # Verificar si el usuario está autenticado
-        if not st.session_state.get('autenticado'):
-            st.error("Debe ingresar una contraseña válida en la página de inicio para acceder a esta página.")
-            st.stop() 
+        # if not st.session_state.get('autenticado'):
+        #     st.error("Debe ingresar una contraseña válida en la página de inicio para acceder a esta página.")
+        #     st.stop() 
         # Conexión a la base de datos
         db_username = st.secrets["DB_USERNAME"]
         db_password = st.secrets["DB_PASSWORD"]
@@ -426,9 +426,9 @@ def main():
     # SNACKYS
     def recompra_snackys():
         # Verificar si el usuario está autenticado
-        if not st.session_state.get('autenticado'):
-            st.error("Debe ingresar una contraseña válida en la página de inicio para acceder a esta página.")
-            st.stop() 
+        # if not st.session_state.get('autenticado'):
+        #     st.error("Debe ingresar una contraseña válida en la página de inicio para acceder a esta página.")
+        #     st.stop() 
         # Conexión a la base de datos
         db_username = st.secrets["DB_USERNAME"]
         db_password = st.secrets["DB_PASSWORD"]
@@ -610,9 +610,9 @@ def main():
     # SNACKYS
     def oferta_snackys():
         # Verificar si el usuario está autenticado
-        if not st.session_state.get('autenticado'):
-            st.error("Debe ingresar una contraseña válida en la página de inicio para acceder a esta página.")
-            st.stop() 
+        # if not st.session_state.get('autenticado'):
+        #     st.error("Debe ingresar una contraseña válida en la página de inicio para acceder a esta página.")
+        #     st.stop() 
         # Conexión a la base de datos
         db_username = st.secrets["DB_USERNAME"]
         db_password = st.secrets["DB_PASSWORD"]
