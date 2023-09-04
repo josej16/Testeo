@@ -4,9 +4,9 @@ import pandas as pd
 import sqlalchemy
 from sqlalchemy import create_engine
 import matplotlib.pyplot as plt
-import seaborn as sns
+# import seaborn as sns
 import numpy as np
-from wordcloud import WordCloud
+# from wordcloud import WordCloud
 import pymysql
 from matplotlib.dates import DateFormatter, DayLocator
 
@@ -23,24 +23,26 @@ def hide_password_input(input_label):
     password = st.text_input(input_label, type="password", key=input_label)
     return password
 
-st.write("---")
+# st.write("---")
 
-colA, colB, colC = st.columns(3)
-with colA :
-    st.image("imgs_exp/desarrollospec2.png", use_column_width=True, width=600)
-# Imagen común a todas las páginas ya que esta por fuera de las funciones
-with colB : 
-    businessnumber = hide_password_input("Coloque su número de negocio:")
+# colA, colB, colC = st.columns(3)
+# with colA :
+#     st.image("imgs_exp/desarrollospec2.png", use_column_width=True, width=600)
+# # Imagen común a todas las páginas ya que esta por fuera de las funciones
+# with colB : 
+#     businessnumber = hide_password_input("Coloque su número de negocio:")
     
-with colC :
-    st.write("")    
+# with colC :
+#     st.write("")    
 
-st.write("---")
-if businessnumber:
-    st.empty()
+# st.write("---")
+# if businessnumber:
+#     st.empty()
 
 # Obtener contraseña ingresada por el usuario
 #businessnumber = st.text_input('Password:')
+businessnumber = st.experimental_get_query_params()
+businessnumber = str(businessnumber['token'])
 businessnumber = businessnumber.strip()
 
 # Función principal
@@ -71,207 +73,207 @@ def main():
         return False  
     
     # Página de inicio
-    def pagina_inicio():
-        st.title("Página de Inicio")
-        st.write("Bienvenido a la página de inicio. Por favor, ingrese su business number.")
-        st.write("passwords = 15550199539 , 56992717910 , 56945904447 ")
+    # def pagina_inicio():
+    #     st.title("Página de Inicio")
+    #     st.write("Bienvenido a la página de inicio. Por favor, ingrese su business number.")
+    #     st.write("passwords = 15550199539 , 56992717910 , 56945904447 ")
 
-        # Verificar la contraseña
-        if businessnumber and verificar_contraseña(businessnumber):
-            st.success("Contraseña válida. Acceso concedido.")
-            # Establecer el estado de autenticación de la sesión
-            st.session_state.autenticado = True
-            # Creamos la conexión
-        else:
-            st.error('Password no válido. Intente nuevamente con un número válido.')
+    #     # Verificar la contraseña
+    #     if businessnumber and verificar_contraseña(businessnumber):
+    #         st.success("Contraseña válida. Acceso concedido.")
+    #         # Establecer el estado de autenticación de la sesión
+    #         st.session_state.autenticado = True
+    #         # Creamos la conexión
+    #     else:
+    #         st.error('Password no válido. Intente nuevamente con un número válido.')
 
     # FEEDBACK
-    def mostrar_feedback():
-        # Verificar si el usuario está autenticado
-        if not st.session_state.get('autenticado'):
-            st.error("Debe ingresar una contraseña válida en la página de inicio para acceder a esta página.")
-            st.stop()
-        # Conexión a la base de datos
-        db_username = st.secrets["DB_USERNAME"]
-        db_password = st.secrets["DB_PASSWORD"]
-        db_host = st.secrets["DB_HOST"]
-        db_token = st.secrets["DB_TOKEN"]
-        # Creamos la conexión
-        conexion_string = f"mysql+pymysql://{db_username}:{db_password}@{db_host}/{db_token}"
-        engine = create_engine(conexion_string,pool_pre_ping=True)
-        # Query de Feedback
-        query = f"""
-            SELECT e.* , c.businessPhoneNumber, c.clientName, c.userPhoneNumber
-            FROM experiencias e
-            JOIN clientes c ON (e.idCliente = c.idCliente)
-            WHERE e.journeyClassName = 'EcommerceFeedbackCompra' AND c.businessPhoneNumber = {businessnumber} ;
-        """
-        df_feedback = pd.read_sql(query, engine)
-        df_feedback.drop("hora",axis=1,inplace=True)
-        # Ocultamos el DF ya que lo utilizamos para ver si todo esta correcto
-        #st.write("Dataframe")
-        #st.dataframe(df_feedback)
-        st.title("Dashboard Feedback")
-        if (len(df_feedback) > 0) :
-            cliente_pec = df_feedback['clientName'].unique().tolist()
-            st.subheader(f"Bienvenido {cliente_pec[0]}")
-        st.write("---")
+    # def mostrar_feedback():
+    #     # Verificar si el usuario está autenticado
+    #     if not st.session_state.get('autenticado'):
+    #         st.error("Debe ingresar una contraseña válida en la página de inicio para acceder a esta página.")
+    #         st.stop()
+    #     # Conexión a la base de datos
+    #     db_username = st.secrets["DB_USERNAME"]
+    #     db_password = st.secrets["DB_PASSWORD"]
+    #     db_host = st.secrets["DB_HOST"]
+    #     db_token = st.secrets["DB_TOKEN"]
+    #     # Creamos la conexión
+    #     conexion_string = f"mysql+pymysql://{db_username}:{db_password}@{db_host}/{db_token}"
+    #     engine = create_engine(conexion_string,pool_pre_ping=True)
+    #     # Query de Feedback
+    #     query = f"""
+    #         SELECT e.* , c.businessPhoneNumber, c.clientName, c.userPhoneNumber
+    #         FROM experiencias e
+    #         JOIN clientes c ON (e.idCliente = c.idCliente)
+    #         WHERE e.journeyClassName = 'EcommerceFeedbackCompra' AND c.businessPhoneNumber = {businessnumber} ;
+    #     """
+    #     df_feedback = pd.read_sql(query, engine)
+    #     df_feedback.drop("hora",axis=1,inplace=True)
+    #     # Ocultamos el DF ya que lo utilizamos para ver si todo esta correcto
+    #     #st.write("Dataframe")
+    #     #st.dataframe(df_feedback)
+    #     st.title("Dashboard Feedback")
+    #     if (len(df_feedback) > 0) :
+    #         cliente_pec = df_feedback['clientName'].unique().tolist()
+    #         st.subheader(f"Bienvenido {cliente_pec[0]}")
+    #     st.write("---")
 
-        # Contamos la cantidad de reviews
-        reviews = {"Positivo":     df_feedback[df_feedback["msgBody"].str.contains("\+")].shape[0] ,
-                    "Neutro" :      df_feedback[df_feedback["msgBody"].str.contains("\=")].shape[0] ,
-                    "Negativo":    df_feedback[df_feedback["msgBody"].str.contains("\-")].shape[0]
-                    }
-        # Reemplazamos para el gráfico de lineas
-        df_feedback.loc[df_feedback["msgBody"].str.contains("\+"), "msgBody"] = "Positivo"
-        df_feedback.loc[df_feedback["msgBody"].str.contains("\="), "msgBody"] = "Neutro"
-        df_feedback.loc[df_feedback["msgBody"].str.contains("\-"), "msgBody"] = "Negativo"
-        df_filtered = df_feedback[
-            df_feedback["msgBody"].str.contains("Positivo") |
-            df_feedback["msgBody"].str.contains("Neutro") |
-            df_feedback["msgBody"].str.contains("Negativo")
-        ].copy()
+    #     # Contamos la cantidad de reviews
+    #     reviews = {"Positivo":     df_feedback[df_feedback["msgBody"].str.contains("\+")].shape[0] ,
+    #                 "Neutro" :      df_feedback[df_feedback["msgBody"].str.contains("\=")].shape[0] ,
+    #                 "Negativo":    df_feedback[df_feedback["msgBody"].str.contains("\-")].shape[0]
+    #                 }
+    #     # Reemplazamos para el gráfico de lineas
+    #     df_feedback.loc[df_feedback["msgBody"].str.contains("\+"), "msgBody"] = "Positivo"
+    #     df_feedback.loc[df_feedback["msgBody"].str.contains("\="), "msgBody"] = "Neutro"
+    #     df_feedback.loc[df_feedback["msgBody"].str.contains("\-"), "msgBody"] = "Negativo"
+    #     df_filtered = df_feedback[
+    #         df_feedback["msgBody"].str.contains("Positivo") |
+    #         df_feedback["msgBody"].str.contains("Neutro") |
+    #         df_feedback["msgBody"].str.contains("Negativo")
+    #     ].copy()
 
-        # Tarjetas
-        # Cantidad conversaciones
-        cantidad_clientes = len(df_feedback["idCliente"].unique())
-        # Conversaciones terminadas
-        conteo_terminadas = df_feedback["idCliente"].value_counts().reset_index()
-        conteo_terminadas = len(conteo_terminadas[conteo_terminadas["count"] >= 2])
-        # Conversaciones incompletas
-        conteo_incompletas = df_feedback["idCliente"].value_counts().reset_index()
-        conteo_incompletas = len(conteo_incompletas[conteo_incompletas["count"] == 1])
-        # Feedbacks positivos
-        if (len(df_feedback)) > 0 :
-            feedbacks_positivos = reviews["Positivo"]
-            valores = list(reviews.values())
-            total = sum(valores)
-            feedbacks_positivos = f"{(feedbacks_positivos / total ) * 100} %"
-        else:
-            feedbacks_positivos = 0    
-        # Comentarios recibidos
-        cantidad_comentarios = df_feedback.loc[(df_feedback["journeyStep"] == "RecepcionMensajeDeMejora") | (df_feedback["journeyStep"] == "EnvioComentarioDeMejora") ,"userPhoneNumber"].reset_index()
-        cantidad_comentarios = len(cantidad_comentarios)
+    #     # Tarjetas
+    #     # Cantidad conversaciones
+    #     cantidad_clientes = len(df_feedback["idCliente"].unique())
+    #     # Conversaciones terminadas
+    #     conteo_terminadas = df_feedback["idCliente"].value_counts().reset_index()
+    #     conteo_terminadas = len(conteo_terminadas[conteo_terminadas["count"] >= 2])
+    #     # Conversaciones incompletas
+    #     conteo_incompletas = df_feedback["idCliente"].value_counts().reset_index()
+    #     conteo_incompletas = len(conteo_incompletas[conteo_incompletas["count"] == 1])
+    #     # Feedbacks positivos
+    #     if (len(df_feedback)) > 0 :
+    #         feedbacks_positivos = reviews["Positivo"]
+    #         valores = list(reviews.values())
+    #         total = sum(valores)
+    #         feedbacks_positivos = f"{(feedbacks_positivos / total ) * 100} %"
+    #     else:
+    #         feedbacks_positivos = 0    
+    #     # Comentarios recibidos
+    #     cantidad_comentarios = df_feedback.loc[(df_feedback["journeyStep"] == "RecepcionMensajeDeMejora") | (df_feedback["journeyStep"] == "EnvioComentarioDeMejora") ,"userPhoneNumber"].reset_index()
+    #     cantidad_comentarios = len(cantidad_comentarios)
 
-        # Crear 5 tarjetas en la primera fila
-        col1, col2, col3, col4, col5 = st.columns(5)
+    #     # Crear 5 tarjetas en la primera fila
+    #     col1, col2, col3, col4, col5 = st.columns(5)
 
-        # Estilos CSS personalizados
-        custom_css = """
-        <style>
-            .tarjeta {
-                padding: 20px;
-                border-radius: 5px;
-                box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
-                background-color: #f9f9f9;
-                text-align: center;
-            }
-            .subheader {
-                font-size: 20px;
-                font-weight: bold;
-                color: #333;
-            }
-        </style>
-        """
+    #     # Estilos CSS personalizados
+    #     custom_css = """
+    #     <style>
+    #         .tarjeta {
+    #             padding: 20px;
+    #             border-radius: 5px;
+    #             box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    #             background-color: #f9f9f9;
+    #             text-align: center;
+    #         }
+    #         .subheader {
+    #             font-size: 20px;
+    #             font-weight: bold;
+    #             color: #333;
+    #         }
+    #     </style>
+    #     """
 
-        # Agregar el estilo CSS personalizado utilizando st.markdown
-        st.markdown(custom_css, unsafe_allow_html=True)
+    #     # Agregar el estilo CSS personalizado utilizando st.markdown
+    #     st.markdown(custom_css, unsafe_allow_html=True)
 
-        # Variable de ejemplo con estilos en línea
-        tarjeta1 = f'<div class="tarjeta" style="font-size: 30px; color: #00008B;">{cantidad_clientes}</div>'
-        tarjeta2 = f'<div class="tarjeta" style="font-size: 30px; color: #00008B;">{conteo_terminadas}</div>'
-        tarjeta3 = f'<div class="tarjeta" style="font-size: 30px; color: #00008B;">{conteo_incompletas}</div>'
-        tarjeta4 = f'<div class="tarjeta" style="font-size: 30px; color: #00008B;">{feedbacks_positivos}</div>'
-        tarjeta5 = f'<div class="tarjeta" style="font-size: 30px; color: #00008B;">{cantidad_comentarios}</div>'
+    #     # Variable de ejemplo con estilos en línea
+    #     tarjeta1 = f'<div class="tarjeta" style="font-size: 30px; color: #00008B;">{cantidad_clientes}</div>'
+    #     tarjeta2 = f'<div class="tarjeta" style="font-size: 30px; color: #00008B;">{conteo_terminadas}</div>'
+    #     tarjeta3 = f'<div class="tarjeta" style="font-size: 30px; color: #00008B;">{conteo_incompletas}</div>'
+    #     tarjeta4 = f'<div class="tarjeta" style="font-size: 30px; color: #00008B;">{feedbacks_positivos}</div>'
+    #     tarjeta5 = f'<div class="tarjeta" style="font-size: 30px; color: #00008B;">{cantidad_comentarios}</div>'
 
-        # Contenido de las tarjetas
-        with col1:
-            st.markdown('<div class="subheader">Cantidad de conversaciones</div>', unsafe_allow_html=True)
-            st.markdown(tarjeta1, unsafe_allow_html=True)
-            st.markdown('</div>', unsafe_allow_html=True)
+    #     # Contenido de las tarjetas
+    #     with col1:
+    #         st.markdown('<div class="subheader">Cantidad de conversaciones</div>', unsafe_allow_html=True)
+    #         st.markdown(tarjeta1, unsafe_allow_html=True)
+    #         st.markdown('</div>', unsafe_allow_html=True)
 
-        with col2:
-            st.markdown('<div class="subheader">Conversaciones terminadas</div>', unsafe_allow_html=True)
-            st.markdown(tarjeta2, unsafe_allow_html=True)
-            st.markdown('</div></div>', unsafe_allow_html=True)
+    #     with col2:
+    #         st.markdown('<div class="subheader">Conversaciones terminadas</div>', unsafe_allow_html=True)
+    #         st.markdown(tarjeta2, unsafe_allow_html=True)
+    #         st.markdown('</div></div>', unsafe_allow_html=True)
 
-        with col3:
-            st.markdown('<div class="subheader">Conversaciones incompletas</div>', unsafe_allow_html=True)
-            st.markdown(tarjeta3, unsafe_allow_html=True)
-            st.markdown('</div></div>', unsafe_allow_html=True)
+    #     with col3:
+    #         st.markdown('<div class="subheader">Conversaciones incompletas</div>', unsafe_allow_html=True)
+    #         st.markdown(tarjeta3, unsafe_allow_html=True)
+    #         st.markdown('</div></div>', unsafe_allow_html=True)
 
-        with col4:
-            st.markdown('<div class="subheader">Feedbacks positivos</div>', unsafe_allow_html=True)
-            st.markdown(tarjeta4, unsafe_allow_html=True)
-            st.markdown('</div></div>', unsafe_allow_html=True)
+    #     with col4:
+    #         st.markdown('<div class="subheader">Feedbacks positivos</div>', unsafe_allow_html=True)
+    #         st.markdown(tarjeta4, unsafe_allow_html=True)
+    #         st.markdown('</div></div>', unsafe_allow_html=True)
 
-        with col5:
-            st.markdown('<div class="subheader">Comentarios recibidos</div>', unsafe_allow_html=True)
-            st.markdown(tarjeta5, unsafe_allow_html=True)
-            st.markdown('</div></div>', unsafe_allow_html=True)
-            ver_comentarios = st.checkbox("Mostrar comentarios")
+    #     with col5:
+    #         st.markdown('<div class="subheader">Comentarios recibidos</div>', unsafe_allow_html=True)
+    #         st.markdown(tarjeta5, unsafe_allow_html=True)
+    #         st.markdown('</div></div>', unsafe_allow_html=True)
+    #         ver_comentarios = st.checkbox("Mostrar comentarios")
 
-        st.write("---")
+    #     st.write("---")
 
-        col6, col7  = st.columns([2,1])
-        # Gráfico de líneas
-        with col6 :
-            df_filtered['fecha'] = pd.to_datetime(df_filtered['fecha'])
-            reviews_por_dia = df_filtered[['fecha',"msgBody"]].value_counts().reset_index()
-            reviews_por_dia1 = reviews_por_dia[reviews_por_dia["msgBody"].str.contains("Positivo")]
-            reviews_por_dia2 = reviews_por_dia[reviews_por_dia["msgBody"].str.contains("Negativo")]
-            fig, ax = plt.subplots()
-            fig.set_size_inches(6, 3)  
-            sns.set(style="whitegrid")
-            ax = sns.lineplot(x="fecha", y="count", marker='o', color='green',data=reviews_por_dia1, label="Positivo",linewidth=4)
-            plt.plot(reviews_por_dia2['fecha'], reviews_por_dia2['count'], marker='o', color='blue', label='Negativo',linewidth=4)
-            plt.xlabel('')
-            plt.ylabel('')
-            plt.legend(loc='upper left', bbox_to_anchor=(1.02, 1))
-            date_form = DateFormatter("%d/%m")
-            ax.xaxis.set_major_formatter(date_form)
-            #plt.tight_layout() 
-            gráfico1 = plt.gcf()
-            st.write("#### **Total de reviews**")
-            st.pyplot(gráfico1)
+    #     col6, col7  = st.columns([2,1])
+    #     # Gráfico de líneas
+    #     with col6 :
+    #         df_filtered['fecha'] = pd.to_datetime(df_filtered['fecha'])
+    #         reviews_por_dia = df_filtered[['fecha',"msgBody"]].value_counts().reset_index()
+    #         reviews_por_dia1 = reviews_por_dia[reviews_por_dia["msgBody"].str.contains("Positivo")]
+    #         reviews_por_dia2 = reviews_por_dia[reviews_por_dia["msgBody"].str.contains("Negativo")]
+    #         fig, ax = plt.subplots()
+    #         fig.set_size_inches(6, 3)  
+    #         sns.set(style="whitegrid")
+    #         ax = sns.lineplot(x="fecha", y="count", marker='o', color='green',data=reviews_por_dia1, label="Positivo",linewidth=4)
+    #         plt.plot(reviews_por_dia2['fecha'], reviews_por_dia2['count'], marker='o', color='blue', label='Negativo',linewidth=4)
+    #         plt.xlabel('')
+    #         plt.ylabel('')
+    #         plt.legend(loc='upper left', bbox_to_anchor=(1.02, 1))
+    #         date_form = DateFormatter("%d/%m")
+    #         ax.xaxis.set_major_formatter(date_form)
+    #         #plt.tight_layout() 
+    #         gráfico1 = plt.gcf()
+    #         st.write("#### **Total de reviews**")
+    #         st.pyplot(gráfico1)
 
-        # Gráfico de torta
-        with col7:
-            if len(df_feedback) > 0 :
-                # Extrae las etiquetas y los valores del diccionario
-                etiquetas = list(reviews.keys())
-                valores = list(reviews.values())
-                total = sum(valores)
-                # Colores para el gráfico
-                colores = ['tab:green', 'tab:grey', 'tab:blue']
-                plt.figure(figsize=(6, 4))  
-                sns.set(style="whitegrid")
-                # Crea el gráfico de torta
-                plt.pie(valores, labels=etiquetas, colors=colores, autopct=lambda p: '{:.0f} ({:.1f}%)'.format(p * total / 100, p), startangle=90)
-                plt.axis('equal')  # Hace que el gráfico sea circular
-                gráfico11 = plt.gcf()
-                st.write("#### **Porcentaje de reviews**")
-                st.pyplot(gráfico11)
-            else:
-                st.write("sin datos")
+    #     # Gráfico de torta
+    #     with col7:
+    #         if len(df_feedback) > 0 :
+    #             # Extrae las etiquetas y los valores del diccionario
+    #             etiquetas = list(reviews.keys())
+    #             valores = list(reviews.values())
+    #             total = sum(valores)
+    #             # Colores para el gráfico
+    #             colores = ['tab:green', 'tab:grey', 'tab:blue']
+    #             plt.figure(figsize=(6, 4))  
+    #             sns.set(style="whitegrid")
+    #             # Crea el gráfico de torta
+    #             plt.pie(valores, labels=etiquetas, colors=colores, autopct=lambda p: '{:.0f} ({:.1f}%)'.format(p * total / 100, p), startangle=90)
+    #             plt.axis('equal')  # Hace que el gráfico sea circular
+    #             gráfico11 = plt.gcf()
+    #             st.write("#### **Porcentaje de reviews**")
+    #             st.pyplot(gráfico11)
+    #         else:
+    #             st.write("sin datos")
 
-        st.write("---")
+    #     st.write("---")
 
-        # Para ver los comentarios
-        if ver_comentarios:
-            st.markdown("## **Comentarios**:")
-            clientes_feedback = df_feedback.loc[(df_feedback["journeyStep"] == "RecepcionMensajeDeMejora") | (df_feedback["journeyStep"] == "EnvioComentarioDeMejora") ,"userPhoneNumber"].reset_index()
-            clientes_feedback = sorted(clientes_feedback["userPhoneNumber"].unique().tolist())
-            clientes_feedback.insert(0, "Todos")
-            seleccion_cliente = st.selectbox("Clientes", clientes_feedback)
-            if (seleccion_cliente == "Todos"):
-                msgbody_feedback1 = df_feedback.loc[(df_feedback["journeyStep"] == "RecepcionMensajeDeMejora") | (df_feedback["journeyStep"] == "EnvioComentarioDeMejora") ,"msgBody"].str.capitalize()
-                for elemento1 in msgbody_feedback1 :
-                    st.write(f"+ {elemento1}")
-            else:
-                msgbody_feedback = df_feedback.loc[(df_feedback["journeyStep"].isin(["RecepcionMensajeDeMejora", "EnvioComentarioDeMejora"])) & (df_feedback["userPhoneNumber"] == seleccion_cliente), "msgBody"].str.capitalize()
-                for elemento in msgbody_feedback :
-                    st.write(f"+ {elemento}")
+    #     # Para ver los comentarios
+    #     if ver_comentarios:
+    #         st.markdown("## **Comentarios**:")
+    #         clientes_feedback = df_feedback.loc[(df_feedback["journeyStep"] == "RecepcionMensajeDeMejora") | (df_feedback["journeyStep"] == "EnvioComentarioDeMejora") ,"userPhoneNumber"].reset_index()
+    #         clientes_feedback = sorted(clientes_feedback["userPhoneNumber"].unique().tolist())
+    #         clientes_feedback.insert(0, "Todos")
+    #         seleccion_cliente = st.selectbox("Clientes", clientes_feedback)
+    #         if (seleccion_cliente == "Todos"):
+    #             msgbody_feedback1 = df_feedback.loc[(df_feedback["journeyStep"] == "RecepcionMensajeDeMejora") | (df_feedback["journeyStep"] == "EnvioComentarioDeMejora") ,"msgBody"].str.capitalize()
+    #             for elemento1 in msgbody_feedback1 :
+    #                 st.write(f"+ {elemento1}")
+    #         else:
+    #             msgbody_feedback = df_feedback.loc[(df_feedback["journeyStep"].isin(["RecepcionMensajeDeMejora", "EnvioComentarioDeMejora"])) & (df_feedback["userPhoneNumber"] == seleccion_cliente), "msgBody"].str.capitalize()
+    #             for elemento in msgbody_feedback :
+    #                 st.write(f"+ {elemento}")
 
     # RECOMPRA
     def mostrar_recompra():
