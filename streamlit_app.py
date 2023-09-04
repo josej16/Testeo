@@ -42,7 +42,9 @@ def hide_password_input(input_label):
 # Obtener contraseña ingresada por el usuario
 #businessnumber = st.text_input('Password:')
 businessnumber = st.experimental_get_query_params()
-businessnumber = int(businessnumber['token'])
+businessnumber = businessnumber['token']
+businessnumber = businessnumber.strip()
+businessnumber = int(businessnumber)
 
 # Función principal
 def main():
