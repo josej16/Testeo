@@ -4,9 +4,9 @@ import pandas as pd
 import sqlalchemy
 from sqlalchemy import create_engine
 import matplotlib.pyplot as plt
-# import seaborn as sns
+import seaborn as sns
 import numpy as np
-# from wordcloud import WordCloud
+from wordcloud import WordCloud
 import pymysql
 from matplotlib.dates import DateFormatter, DayLocator
 
