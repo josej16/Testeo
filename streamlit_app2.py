@@ -261,8 +261,8 @@ def main():
         # gráfico de torta
         torta = df_oferta_snackys[(df_oferta_snackys["journeyStep"] == "RespuestaMensajeInicial")]
         # Contamos la cantidad de suscriptos
-        subs = {"Suscriptos":     torta[torta["msgBody"] == 1].shape[0] ,
-                "No suscriptos":    torta[torta["msgBody"] == 0].shape[0]
+        subs = {"Suscriptos":     torta[torta["msgBody"] == '1'].shape[0] ,
+                "No suscriptos":    torta[torta["msgBody"] == '0'].shape[0]
                     }
 
         # Tarjetas
