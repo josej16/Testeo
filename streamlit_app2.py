@@ -447,7 +447,9 @@ def main():
                 padding: 22px 40px;
             }
             .ag-courses-item_date-box {
-                font-size: 16px;
+                font-size: 25px;
+                color: 
+                text-align: center;
             }
             }
         </style>
@@ -457,10 +459,10 @@ def main():
         st.markdown(custom_css2, unsafe_allow_html=True)
     
         # Variable de ejemplo con estilos en línea
-        tarjeta1 = f'<div class="ag-format-container"><div class="ag-courses_box"><div class="ag-courses_item"><a href="#" class="ag-courses-item_link"><div class="ag-courses-item_bg"></div><div class="ag-courses-item_title">Clientes Subscritos</div><div class="ag-courses-item_date-box"><span class="ag-courses-item_date">{clientes_suscriptos}</span></div></a></div></div></div>'
-        tarjeta2 = f'<div class="ag-courses_item" style="font-size: 30px; color: #00008B;">{clientes_suscriptos}</div>'
-        tarjeta3 = f'<div class="ag-courses_item" style="font-size: 30px; color: #00008B;">{clientes_dejar_de_recibir}</div>'
-        tarjeta4 = f'<div class="ag-courses_item" style="font-size: 30px; color: #00008B;">{sin_motivo_no_interesado}</div>'
+        tarjeta1 = f'<div class="ag-format-container"><div class="ag-courses_box"><div class="ag-courses_item"><div class="ag-courses-item_bg"></div><div class="ag-courses-item_title">Clientes Subscritos</div><div class="ag-courses-item_date-box"><span class="ag-courses-item_date">{clientes_suscriptos}</span></div></div></div></div>'
+        tarjeta2 = f'<div class="ag-format-container"><div class="ag-courses_box"><div class="ag-courses_item"><div class="ag-courses-item_bg"></div><div class="ag-courses-item_title">Clientes que se dieron de baja</div><div class="ag-courses-item_date-box"><span class="ag-courses-item_date">{clientes_dejar_de_recibir}</span></div></div></div></div>'
+        tarjeta3 = f'<div class="ag-format-container"><div class="ag-courses_box"><div class="ag-courses_item"><div class="ag-courses-item_bg"></div><div class="ag-courses-item_title">Clientes que dejaron motivos</div><div class="ag-courses-item_date-box"><span class="ag-courses-item_date">{con_motivo_no_interesados}</span></div></div></div></div>'
+        tarjeta4 = f'<div class="ag-format-container"><div class="ag-courses_box"><div class="ag-courses_item"><div class="ag-courses-item_bg"></div><div class="ag-courses-item_title">Clientes que no dejaron motivos</div><div class="ag-courses-item_date-box"><span class="ag-courses-item_date">{sin_motivo_no_interesado}</span></div></div></div></div>'
 
         # Contenido de las tarjetas
         with col1:
@@ -471,19 +473,19 @@ def main():
             # st.write(f"+ Conversaciones incompletas: **{conversaciones_incompletas}**")
 
         with col2:
-            st.markdown('<div class="ag-courses-item_title">Clientes suscriptos</div>', unsafe_allow_html=True)
+            # st.markdown('<div class="ag-courses-item_title">Clientes suscriptos</div>', unsafe_allow_html=True)
             st.markdown(tarjeta2, unsafe_allow_html=True)
-            st.markdown('</div></div>', unsafe_allow_html=True)
+            # st.markdown('</div></div>', unsafe_allow_html=True)
 
         with col3:
-            st.markdown('<div class="ag-courses-item_title">Clientes que se dieron de baja</div>', unsafe_allow_html=True)
+            # st.markdown('<div class="ag-courses-item_title">Clientes que se dieron de baja</div>', unsafe_allow_html=True)
             st.markdown(tarjeta3, unsafe_allow_html=True)
-            st.markdown('</div></div>', unsafe_allow_html=True)
+            # st.markdown('</div></div>', unsafe_allow_html=True)
 
         with col4:
-            st.markdown('<div class="ag-courses-item_title">Clientes que no dejaron motivos</div>', unsafe_allow_html=True)
+            # st.markdown('<div class="ag-courses-item_title">Clientes que no dejaron motivos</div>', unsafe_allow_html=True)
             st.markdown(tarjeta4, unsafe_allow_html=True)
-            st.markdown('</div></div>', unsafe_allow_html=True)
+            # st.markdown('</div></div>', unsafe_allow_html=True)
             # ver_motivos = st.checkbox("Mostrar motivos")
             
         st.write("---")
