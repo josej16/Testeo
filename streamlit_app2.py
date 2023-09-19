@@ -310,7 +310,7 @@ def main():
 
 
             body {
-            background-color: #000;
+            background-color: #FF9B00;
             }
             .ag-courses_box {
             display: -webkit-box;
@@ -337,7 +337,7 @@ def main():
             .ag-courses-item_link {
             display: block;
             padding: 30px 20px;
-            background-color: #121212;
+            background-color: #FF9B00;
 
             overflow: hidden;
 
@@ -385,7 +385,7 @@ def main():
             .ag-courses-item_bg {
             height: 128px;
             width: 128px;
-            background-color: #f9b234;
+            background-color: #000;
 
             z-index: 1;
             position: absolute;
