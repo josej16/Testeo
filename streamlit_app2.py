@@ -325,8 +325,8 @@ def main():
             padding: 50px 0;
             }
             .ag-courses_item {
-            -ms-flex-preferred-size: calc(33.33333% - 30px);
-            flex-basis: calc(33.33333% - 30px);
+            -ms-flex-preferred-size: calc(25% - 30px);
+            flex-basis: calc(25% - 30px);
 
             margin: 0 15px 30px;
 
@@ -337,7 +337,7 @@ def main():
             .ag-courses-item_link {
             display: block;
             padding: 30px 20px;
-            background-color: #121212;
+            background-color: #EFAE0E;
 
             overflow: hidden;
 
@@ -361,21 +361,23 @@ def main():
 
             font-weight: bold;
             font-size: 30px;
-            color: #FFF;
+            color: #848572;
+            text-align: center;
 
             z-index: 2;
             position: relative;
             }
             .ag-courses-item_date-box {
             font-size: 18px;
-            color: #FFF;
+            color: #848572;
 
             z-index: 2;
             position: relative;
             }
             .ag-courses-item_date {
             font-weight: bold;
-            color: #f9b234;
+            color: #000;
+            text-align: center;
 
             -webkit-transition: color .5s ease;
             -o-transition: color .5s ease;
@@ -384,7 +386,7 @@ def main():
             .ag-courses-item_bg {
             height: 128px;
             width: 128px;
-            background-color: #f9b234;
+            background-color: #000;
 
             z-index: 1;
             position: absolute;
@@ -456,10 +458,10 @@ def main():
         st.markdown(custom_css2, unsafe_allow_html=True)
     
         # Variable de ejemplo con estilos en línea
-        tarjeta1 = f'<div class="ag-format-container"><div class="ag-courses_box"><div class="ag-courses_item"><div class="ag-courses-item_bg"></div><div class="ag-courses-item_title">Clientes Subscritos</div><div class="ag-courses-item_date-box"><span class="ag-courses-item_date">{clientes_suscriptos}</span></div></div></div></div>'
-        tarjeta2 = f'</div>hola</div>'
-        tarjeta3 = f'</div>hola</div>'
-        tarjeta4 = f'</div>hola</div>'
+        tarjeta1 = f'<div class="ag-format-container"><div class="ag-courses_box"><div class="ag-courses_item"><a href="#" class="ag-courses-item_link"><div class="ag-courses-item_bg"></div><div class="ag-courses-item_title">Clientes Subscritos</div><div class="ag-courses-item_date-box"><span class="ag-courses-item_date">{clientes_suscriptos}</span></a></div></div></div></div>'
+        tarjeta2 = f'<div class="ag-format-container"><div class="ag-courses_box"><div class="ag-courses_item"><a href="#" class="ag-courses-item_link"><div class="ag-courses-item_bg"></div><div class="ag-courses-item_title">Clientes que se dieron de baja</div><div class="ag-courses-item_date-box"><span class="ag-courses-item_date">{clientes_dejar_de_recibir}</span></a></div></div></div></div>'
+        tarjeta3 = f'<div class="ag-format-container"><div class="ag-courses_box"><div class="ag-courses_item"><a href="#" class="ag-courses-item_link"><div class="ag-courses-item_bg"></div><div class="ag-courses-item_title">Clientes que dejaron motivos</div><div class="ag-courses-item_date-box"><span class="ag-courses-item_date">{con_motivo_no_interesados}</span></a></div></div></div></div>'
+        tarjeta4 = f'<div class="ag-format-container"><div class="ag-courses_box"><div class="ag-courses_item"><a href="#" class="ag-courses-item_link"><div class="ag-courses-item_bg"></div><div class="ag-courses-item_title">Clientes que no dejaron motivos</div><div class="ag-courses-item_date-box"><span class="ag-courses-item_date">{sin_motivo_no_interesado}</span></a></div></div></div></div>'
 
         # Contenido de las tarjetas
         with col1:
