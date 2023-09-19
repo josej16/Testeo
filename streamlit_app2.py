@@ -310,7 +310,7 @@ def main():
 
 
             body {
-            background-color: #FF9B00;
+            background-color: #000;
             }
             .ag-courses_box {
             display: -webkit-box;
@@ -325,8 +325,8 @@ def main():
             padding: 50px 0;
             }
             .ag-courses_item {
-            -ms-flex-preferred-size: calc(18% - 30px);
-            flex-basis: calc(18% - 30px);
+            -ms-flex-preferred-size: calc(33.33333% - 30px);
+            flex-basis: calc(33.33333% - 30px);
 
             margin: 0 15px 30px;
 
@@ -337,7 +337,7 @@ def main():
             .ag-courses-item_link {
             display: block;
             padding: 30px 20px;
-            background-color: #FF9B00;
+            background-color: #121212;
 
             overflow: hidden;
 
@@ -361,15 +361,14 @@ def main():
 
             font-weight: bold;
             font-size: 30px;
-            color: #B7C600;
-            text-align: center;
+            color: #FFF;
 
             z-index: 2;
             position: relative;
             }
             .ag-courses-item_date-box {
             font-size: 18px;
-            color: #B7C600;
+            color: #FFF;
 
             z-index: 2;
             position: relative;
@@ -385,7 +384,7 @@ def main():
             .ag-courses-item_bg {
             height: 128px;
             width: 128px;
-            background-color: #000;
+            background-color: #f9b234;
 
             z-index: 1;
             position: absolute;
@@ -447,7 +446,7 @@ def main():
                 padding: 22px 40px;
             }
             .ag-courses-item_date-box {
-                font-size: 25px;
+                font-size: 16px;
             }
             }
         </style>
