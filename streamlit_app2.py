@@ -282,7 +282,7 @@ def main():
         # Clientes prefieren 'dejar de recibir'
         clientes_dejar_de_recibir = len(df_oferta_snackys[df_oferta_snackys['msgBody'] == 'dejar de recibir'])
         # Crear 5 tarjetas en la primera fila
-        col1, col2, col3, col4= st.columns(4)
+        col1, col2= st.columns(4)
 
         # Estilos CSS personalizados
         custom_css = """
@@ -477,16 +477,16 @@ def main():
             st.markdown(tarjeta2, unsafe_allow_html=True)
             # st.markdown('</div></div>', unsafe_allow_html=True)
 
-        with col3:
-            # st.markdown('<div class="ag-courses-item_title">Clientes que se dieron de baja</div>', unsafe_allow_html=True)
-            st.markdown(tarjeta3, unsafe_allow_html=True)
-            # st.markdown('</div></div>', unsafe_allow_html=True)
+        # with col3:
+        #     # st.markdown('<div class="ag-courses-item_title">Clientes que se dieron de baja</div>', unsafe_allow_html=True)
+        #     st.markdown(tarjeta3, unsafe_allow_html=True)
+        #     # st.markdown('</div></div>', unsafe_allow_html=True)
 
-        with col4:
-            # st.markdown('<div class="ag-courses-item_title">Clientes que no dejaron motivos</div>', unsafe_allow_html=True)
-            st.markdown(tarjeta4, unsafe_allow_html=True)
-            # st.markdown('</div></div>', unsafe_allow_html=True)
-            # ver_motivos = st.checkbox("Mostrar motivos")
+        # with col4:
+        #     # st.markdown('<div class="ag-courses-item_title">Clientes que no dejaron motivos</div>', unsafe_allow_html=True)
+        #     st.markdown(tarjeta4, unsafe_allow_html=True)
+        #     # st.markdown('</div></div>', unsafe_allow_html=True)
+        #     # ver_motivos = st.checkbox("Mostrar motivos")
             
         st.write("---")
 
