@@ -282,7 +282,7 @@ def main():
         # Clientes prefieren 'dejar de recibir'
         clientes_dejar_de_recibir = len(df_oferta_snackys[df_oferta_snackys['msgBody'] == 'dejar de recibir'])
         # Crear 5 tarjetas en la primera fila
-        col1= st.columns(1)
+        col1, col2, col3, col4= st.columns(4)
 
         # Estilos CSS personalizados
         custom_css = """
@@ -448,7 +448,7 @@ def main():
             }
             .ag-courses-item_date-box {
                 font-size: 25px;
-                color: 
+                color: #000;
                 text-align: center;
             }
             }
@@ -472,21 +472,21 @@ def main():
             # st.write(f"+ Conversaciones terminadas: **{conversaciones_terminadas}**")
             # st.write(f"+ Conversaciones incompletas: **{conversaciones_incompletas}**")
 
-        # with col2:
-        #     # st.markdown('<div class="ag-courses-item_title">Clientes suscriptos</div>', unsafe_allow_html=True)
-        #     st.markdown(tarjeta2, unsafe_allow_html=True)
-        #     # st.markdown('</div></div>', unsafe_allow_html=True)
+        with col2:
+            # st.markdown('<div class="ag-courses-item_title">Clientes suscriptos</div>', unsafe_allow_html=True)
+            st.markdown(tarjeta2, unsafe_allow_html=True)
+            # st.markdown('</div></div>', unsafe_allow_html=True)
 
-        # with col3:
-        #     # st.markdown('<div class="ag-courses-item_title">Clientes que se dieron de baja</div>', unsafe_allow_html=True)
-        #     st.markdown(tarjeta3, unsafe_allow_html=True)
-        #     # st.markdown('</div></div>', unsafe_allow_html=True)
+        with col3:
+            # st.markdown('<div class="ag-courses-item_title">Clientes que se dieron de baja</div>', unsafe_allow_html=True)
+            st.markdown(tarjeta3, unsafe_allow_html=True)
+            # st.markdown('</div></div>', unsafe_allow_html=True)
 
-        # with col4:
-        #     # st.markdown('<div class="ag-courses-item_title">Clientes que no dejaron motivos</div>', unsafe_allow_html=True)
-        #     st.markdown(tarjeta4, unsafe_allow_html=True)
-        #     # st.markdown('</div></div>', unsafe_allow_html=True)
-        #     # ver_motivos = st.checkbox("Mostrar motivos")
+        with col4:
+            # st.markdown('<div class="ag-courses-item_title">Clientes que no dejaron motivos</div>', unsafe_allow_html=True)
+            st.markdown(tarjeta4, unsafe_allow_html=True)
+            # st.markdown('</div></div>', unsafe_allow_html=True)
+            # ver_motivos = st.checkbox("Mostrar motivos")
             
         st.write("---")
 
