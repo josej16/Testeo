@@ -282,7 +282,7 @@ def main():
         # Clientes prefieren 'dejar de recibir'
         clientes_dejar_de_recibir = len(df_oferta_snackys[df_oferta_snackys['msgBody'] == 'dejar de recibir'])
         # Crear 5 tarjetas en la primera fila
-        col1, col2= st.columns(4)
+        col1, col2= st.columns(2)
 
         # Estilos CSS personalizados
         custom_css = """
