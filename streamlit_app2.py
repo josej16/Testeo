@@ -325,8 +325,8 @@ def main():
             padding: 50px 0;
             }
             .ag-courses_item {
-            -ms-flex-preferred-size: calc(25% - 30px);
-            flex-basis: calc(25% - 30px);
+            -ms-flex-preferred-size: calc(18% - 30px);
+            flex-basis: calc(18% - 30px);
 
             margin: 0 15px 30px;
 
@@ -361,7 +361,7 @@ def main():
 
             font-weight: bold;
             font-size: 30px;
-            color: #FFF;
+            color: #B7C600;
             text-align: center;
 
             z-index: 2;
@@ -369,7 +369,7 @@ def main():
             }
             .ag-courses-item_date-box {
             font-size: 18px;
-            color: #FFF;
+            color: #B7C600;
 
             z-index: 2;
             position: relative;
@@ -460,9 +460,9 @@ def main():
     
         # Variable de ejemplo con estilos en línea
         tarjeta1 = f'<div class="ag-format-container"><div class="ag-courses_box"><div class="ag-courses_item"><div class="ag-courses-item_bg"></div><div class="ag-courses-item_title">Clientes Subscritos</div><div class="ag-courses-item_date-box"><span class="ag-courses-item_date">{clientes_suscriptos}</span></div></div></div></div>'
-        tarjeta2 = f'<div class="ag-format-container"><div class="ag-courses_box"><div class="ag-courses_item"><div class="ag-courses-item_bg"></div><div class="ag-courses-item_title">Clientes que se dieron de baja</div><div class="ag-courses-item_date-box"><span class="ag-courses-item_date">{clientes_dejar_de_recibir}</span></div></div></div></div>'
-        tarjeta3 = f'<div class="ag-format-container"><div class="ag-courses_box"><div class="ag-courses_item"><div class="ag-courses-item_bg"></div><div class="ag-courses-item_title">Clientes que dejaron motivos</div><div class="ag-courses-item_date-box"><span class="ag-courses-item_date">{con_motivo_no_interesados}</span></div></div></div></div>'
-        tarjeta4 = f'<div class="ag-format-container"><div class="ag-courses_box"><div class="ag-courses_item"><div class="ag-courses-item_bg"></div><div class="ag-courses-item_title">Clientes que no dejaron motivos</div><div class="ag-courses-item_date-box"><span class="ag-courses-item_date">{sin_motivo_no_interesado}</span></div></div></div></div>'
+        tarjeta2 = f'</div>hola</div>'
+        tarjeta3 = f'</div>hola</div>'
+        tarjeta4 = f'</div>hola</div>'
 
         # Contenido de las tarjetas
         with col1:
