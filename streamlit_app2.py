@@ -448,8 +448,6 @@ def main():
             }
             .ag-courses-item_date-box {
                 font-size: 25px;
-                color: #000;
-                text-align: center;
             }
             }
         </style>
