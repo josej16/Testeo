@@ -467,6 +467,7 @@ def main():
                 </div>
             </a>
             </div>
+            </div>
             </div>'''
         tarjeta2 = f'<div class="ag-courses_item" style="font-size: 30px; color: #00008B;">{clientes_suscriptos}</div>'
         tarjeta3 = f'<div class="ag-courses_item" style="font-size: 30px; color: #00008B;">{clientes_dejar_de_recibir}</div>'
@@ -474,7 +475,7 @@ def main():
 
         # Contenido de las tarjetas
         with col1:
-            st.markdown('<div class="ag-courses-item_title">Cantidad de clientes que dejaron motivos</div>', unsafe_allow_html=True)
+            # st.markdown('<div class="ag-courses-item_title">Cantidad de clientes que dejaron motivos</div>', unsafe_allow_html=True)
             st.markdown(tarjeta1, unsafe_allow_html=True)
             st.markdown('</div>', unsafe_allow_html=True)
             # st.write(f"+ Conversaciones terminadas: **{conversaciones_terminadas}**")
