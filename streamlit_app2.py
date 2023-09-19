@@ -325,8 +325,8 @@ def main():
             padding: 50px 0;
             }
             .ag-courses_item {
-            -ms-flex-preferred-size: calc(33.33333% - 30px);
-            flex-basis: calc(33.33333% - 30px);
+            -ms-flex-preferred-size: calc(25% - 30px);
+            flex-basis: calc(25% - 30px);
 
             margin: 0 15px 30px;
 
@@ -362,6 +362,7 @@ def main():
             font-weight: bold;
             font-size: 30px;
             color: #FFF;
+            text-align: center;
 
             z-index: 2;
             position: relative;
