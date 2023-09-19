@@ -463,9 +463,7 @@ def main():
                 <a href="#" class="ag-courses-item_link">
                     <div class="ag-courses-item_bg"></div>
 
-                    <div class="ag-courses-item_title">
-                        {con_motivo_no_interesados}
-                    </div>
+                    <div class="ag-courses-item_title">{con_motivo_no_interesados}</div>
                 </a>
                 </div>
             </div>
@@ -479,7 +477,7 @@ def main():
         with col1:
             # st.markdown('<div class="ag-courses-item_title">Cantidad de clientes que dejaron motivos</div>', unsafe_allow_html=True)
             st.markdown(tarjeta1, unsafe_allow_html=True)
-            st.markdown('</div>', unsafe_allow_html=True)
+            # st.markdown('</div>', unsafe_allow_html=True)
             # st.write(f"+ Conversaciones terminadas: **{conversaciones_terminadas}**")
             # st.write(f"+ Conversaciones incompletas: **{conversaciones_incompletas}**")
 
