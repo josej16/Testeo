@@ -464,7 +464,7 @@ def main():
                     <div class="ag-courses-item_bg"></div>
 
                     <div class="ag-courses-item_title">
-                    {con_motivo_no_interesados}
+                        {con_motivo_no_interesados}
                     </div>
                 </a>
                 </div>
