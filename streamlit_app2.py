@@ -456,19 +456,21 @@ def main():
         st.markdown(custom_css2, unsafe_allow_html=True)
     
         # Variable de ejemplo con estilos en línea
-        tarjeta1 = f'''<div class="ag-format-container">
-        <div class="ag-courses_box">
-            <div class="ag-courses_item">
-            <a href="#" class="ag-courses-item_link">
-                <div class="ag-courses-item_bg"></div>
+        tarjeta1 = f'''
+        <div class="ag-format-container">
+            <div class="ag-courses_box">
+                <div class="ag-courses_item">
+                <a href="#" class="ag-courses-item_link">
+                    <div class="ag-courses-item_bg"></div>
 
-                <div class="ag-courses-item_title">
-                {con_motivo_no_interesados}
+                    <div class="ag-courses-item_title">
+                    {con_motivo_no_interesados}
+                    </div>
+                </a>
                 </div>
-            </a>
             </div>
-            </div>
-            </div>'''
+        </div>
+'''
         tarjeta2 = f'<div class="ag-courses_item" style="font-size: 30px; color: #00008B;">{clientes_suscriptos}</div>'
         tarjeta3 = f'<div class="ag-courses_item" style="font-size: 30px; color: #00008B;">{clientes_dejar_de_recibir}</div>'
         tarjeta4 = f'<div class="ag-courses_item" style="font-size: 30px; color: #00008B;">{sin_motivo_no_interesado}</div>'
