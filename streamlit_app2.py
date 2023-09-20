@@ -332,7 +332,7 @@ def main():
 
             overflow: hidden;
 
-            border-radius: 40px;
+            border-radius: 28px;
             }
             .ag-courses-item_link {
             display: block;
@@ -392,7 +392,7 @@ def main():
             top: -200px;
             right: -200px;
 
-            border-radius: 50%;
+            border-radius: 20%;
 
             -webkit-transition: all .5s ease;
             -o-transition: all .5s ease;
