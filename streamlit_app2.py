@@ -327,7 +327,6 @@ def main():
             .ag-courses_item {
             -ms-flex-preferred-size: calc(25% - 30px);
             flex-basis: calc(25% - 30px);
-            height: 150px;
 
             margin: 0 15px 30px;
 
@@ -463,10 +462,10 @@ def main():
         st.markdown(custom_css2, unsafe_allow_html=True)
     
         # Variable de ejemplo con estilos en línea
-        tarjeta1 = f'<div class="ag-format-container"><div class="ag-courses_box"><div class="ag-courses_item"><div href="#" class="ag-courses-item_link"><div class="ag-courses-item_bg"></div><div class="ag-courses-item_title"><span class="adjustable-text">Clientes Subscritos <br> {clientes_suscriptos}</span></div></div></div></div></div></div>'
-        tarjeta2 = f'<div class="ag-format-container"><div class="ag-courses_box"><div class="ag-courses_item"><div href="#" class="ag-courses-item_link"><div class="ag-courses-item_bg"></div><div class="ag-courses-item_title"><span class="adjustable-text">Clientes que se dieron de baja <br> {clientes_dejar_de_recibir}</span></div></div></div></div></div></div>'
-        tarjeta3 = f'<div class="ag-format-container"><div class="ag-courses_box"><div class="ag-courses_item"><div href="#" class="ag-courses-item_link"><div class="ag-courses-item_bg"></div><div class="ag-courses-item_title"><span class="adjustable-text">Clientes que dejaron motivos <br> {con_motivo_no_interesados}</span></div></div></div></div></div></div>'
-        tarjeta4 = f'<div class="ag-format-container"><div class="ag-courses_box"><div class="ag-courses_item"><div href="#" class="ag-courses-item_link"><div class="ag-courses-item_bg"></div><div class="ag-courses-item_title"><span class="adjustable-text">Clientes que no dejaron motivos <br> {sin_motivo_no_interesado}</span></div></div></div></div></div></div>'
+        tarjeta1 = f'<div class="ag-format-container"><div class="ag-courses_box"><div class="ag-courses_item"><div href="#" class="ag-courses-item_link"><div class="ag-courses-item_bg"></div><div class="ag-courses-item_title"><span class="adjustable-text"> Clientes Subscritos <br><br>{clientes_suscriptos}</span></div></div></div></div></div></div>'
+        tarjeta2 = f'<div class="ag-format-container"><div class="ag-courses_box"><div class="ag-courses_item"><div href="#" class="ag-courses-item_link"><div class="ag-courses-item_bg"></div><div class="ag-courses-item_title"><span class="adjustable-text"> Clientes que se dieron de baja <br><br>{clientes_dejar_de_recibir}</span></div></div></div></div></div></div>'
+        tarjeta3 = f'<div class="ag-format-container"><div class="ag-courses_box"><div class="ag-courses_item"><div href="#" class="ag-courses-item_link"><div class="ag-courses-item_bg"></div><div class="ag-courses-item_title"><span class="adjustable-text"> Clientes que dejaron motivos <br><br>{con_motivo_no_interesados}</span></div></div></div></div></div></div>'
+        tarjeta4 = f'<div class="ag-format-container"><div class="ag-courses_box"><div class="ag-courses_item"><div href="#" class="ag-courses-item_link"><div class="ag-courses-item_bg"></div><div class="ag-courses-item_title"><span class="adjustable-text"> Clientes que no dejaron motivos <br><br>{sin_motivo_no_interesado}</span></div></div></div></div></div></div>'
 
         # Contenido de las tarjetas
         with col1:
