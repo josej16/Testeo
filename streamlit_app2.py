@@ -337,7 +337,7 @@ def main():
             .ag-courses-item_link {
             display: block;
             padding: 30px 20px;
-            background-color: #EFAE0E;
+            background-color: #000;
 
             overflow: hidden;
 
@@ -360,8 +360,8 @@ def main():
             overflow: hidden;
 
             font-weight: bold;
-            font-size: 30px;
-            color: #848572;
+            font-size: 23px;
+            color: #FFFFFF;
             text-align: center;
 
             z-index: 2;
@@ -369,14 +369,14 @@ def main():
             }
             .ag-courses-item_date-box {
             font-size: 18px;
-            color: #848572;
+            color: #C4C5AE;
 
             z-index: 2;
             position: relative;
             }
             .ag-courses-item_date {
             font-weight: bold;
-            color: #000;
+            color: #FFC641;
             text-align: center;
 
             -webkit-transition: color .5s ease;
@@ -386,7 +386,7 @@ def main():
             .ag-courses-item_bg {
             height: 128px;
             width: 128px;
-            background-color: #000;
+            background-color: #E5A102;
 
             z-index: 1;
             position: absolute;
