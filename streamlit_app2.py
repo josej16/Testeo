@@ -392,7 +392,7 @@ def main():
             top: -200px;
             right: -200px;
 
-            border-radius: 20%;
+            border-radius: 50%;
 
             -webkit-transition: all .5s ease;
             -o-transition: all .5s ease;
