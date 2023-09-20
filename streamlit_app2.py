@@ -345,6 +345,7 @@ def main():
             }
             .ag-courses-item_link:hover,
             .ag-courses-item_link:hover .ag-courses-item_date {
+            text-decoration: none;
             color: #FFF;
             }
             .ag-courses-item_link:hover .ag-courses-item_bg {
@@ -362,6 +363,7 @@ def main():
             font-size: 23px;
             color: #FFFFFF;
             text-align: center;
+            text-decoration: none;
 
             z-index: 2;
             position: relative;
