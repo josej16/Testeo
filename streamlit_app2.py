@@ -364,7 +364,8 @@ def main():
             color: #FFFFFF;
             text-align: center;
             text-decoration: none;
-
+            color: inherit;
+            
             z-index: 2;
             position: relative;
             }
