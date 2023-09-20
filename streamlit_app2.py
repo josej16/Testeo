@@ -327,7 +327,7 @@ def main():
             .ag-courses_item {
             -ms-flex-preferred-size: calc(25% - 30px);
             flex-basis: calc(25% - 30px);
-            min-height: 400px;
+            height: 150px;
 
             margin: 0 15px 30px;
 
