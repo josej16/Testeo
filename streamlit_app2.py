@@ -354,7 +354,6 @@ def main():
             transform: scale(10);
             }
             .ag-courses-item_title {
-            min-height: 87px;
             margin: 0 0 25px;
 
             overflow: hidden;
