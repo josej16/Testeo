@@ -336,7 +336,6 @@ def main():
             }
             .ag-courses-item_link {
             display: block;
-            padding: 30px 20px;
             background-color: #000;
 
             overflow: hidden;
